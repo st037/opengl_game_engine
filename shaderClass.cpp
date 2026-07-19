@@ -13,7 +13,8 @@ std::string get_file_contents(const char* filename)
 		in.close();
 		return (contents);
 	}
-	throw(errno);
+	std::cerr << "Error: Could not open file " << filename << std::endl;
+	throw std::runtime_error("File opening failed");
 }
 
 Shader::Shader(const char* vertexFile, const char* fragmentFile)
